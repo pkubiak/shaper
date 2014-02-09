@@ -24,6 +24,7 @@ $(SUBDIRS):
 clean: TARGET = clean
 clean: $(SUBDIRS)
 	rm -f *.o
+	rm -f ./shaper
 
 
 
