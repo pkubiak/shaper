@@ -1,7 +1,8 @@
-#include "libshaper.h"
+#pragma once
 
-namespace Shaper{
-	namespace EdgeOperator{
+namespace shaper{
+	namespace singleton{
+	/*namespace EdgeOperator{
 			enum EdgeOperatorType{
 				SOBEL = 0, SOBEL3x3 = 0,
 				SOBEL5x5 = 1,
@@ -26,7 +27,10 @@ namespace Shaper{
 	
     void maximalSupression();
 
-    void hysteresisTresholding();:    
+    void hysteresisTresholding();:   */
+    
+		void detect(char *path); 
+	}
 }
 
 /**
