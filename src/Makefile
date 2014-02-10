@@ -1,4 +1,5 @@
 CXXFLAGS = -std=c++11 -Wall -Wshadow -Wextra -Wno-unused-parameter
+INCLUDES = -I/usr/include/boost
 
 SOURCES = $(wildcard *.cpp)
 FILES = $(patsubst %.cpp,%.o,$(SOURCES))
@@ -9,7 +10,7 @@ OBJS = $(patsubst %.cpp,%.o,$(shell find . -name \*.cpp -print))
 .PHONY: subdirs $(SUBDIRS)
 
 all: $(FILES) subdirs
-	g++ $(CXXFLAGS) $(OBJS) -o shaper
+	g++ $(CXXFLAGS) $(INCLUDES) $(OBJS) -o shaper
 
 subdirs: $(SUBDIRS)
 	

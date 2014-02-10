@@ -2,7 +2,7 @@ CXXFLAGS = -g -std=c++11 -Wall -Wshadow -Wextra -Wno-unused-parameter
 
 SOURCES = $(wildcard *.cpp)
 FILES = $(patsubst %.cpp,%.o,$(SOURCES))
-SUBDIRS = 
+SUBDIRS = detectors
 TARGET = 
 #OBJS = $(patsubst %.cpp,%.o,$(shell find . -name \*.cpp -print))
 

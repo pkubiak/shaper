@@ -2,7 +2,11 @@
 #include "edge_detectors.hpp"
 #include "filters.hpp"
 #include "../common/fs.hpp"
+#include "detectors/detectors.hpp"
+#include "detectors/ellipses_detector.hpp"
 #include<vector>
+#include<memory>
+#include<iostream>
 using namespace std;
 
 
@@ -40,8 +44,17 @@ namespace shaper{
 			
 			shaper::singleton::filters::normalize(edges, width, height);
 			
-			printf("%p\n",edges);
 			shaper::fs::save("canny.pgm", "PGM", {edges}, width, height);
+			
+			//detect ellipses
+			using namespace shaper::singleton::detectors;
+			
+			EllipsesDetector ed;
+			vector<std::shared_ptr<TEllipse> > shapes = ed.detect(edges, width, height);
+			for(auto &shape: shapes){
+				std::cout << shape->toString() << std::endl;
+			}
+			
 		}
 	}
 }
